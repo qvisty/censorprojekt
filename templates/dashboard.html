@@ -1,0 +1,48 @@
+{% extends 'censor_app/base.html' %}
+
+{% block content %}
+<h1>Dashboard</h1>
+<div class="row">
+    <div class="col-lg-4">
+        <h2>Skoler</h2>
+        <ul>
+            {% for school in schools %}
+            <li>{{ school.name }}</li>
+            {% empty %}
+            <li>Ingen skoler</li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="col-lg-4">
+        <h2>Prøver</h2>
+        <ul>
+            {% for exam in exams %}
+            <li>{{ exam.exam_name }} - {{ exam.exam_date }}</li>
+            {% empty %}
+            <li>Ingen prøver</li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="col-lg-4">
+        <h2>Klasser</h2>
+        <ul>
+            {% for school_class in classes %}
+            <li>{{ school_class.name }} - {{ school_class.school }}</li>
+            {% empty %}
+            <li>Ingen klasser</li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+<br />
+<ul>
+    <li><a href="{% url 'school_list' %}">Liste over skoler</a></li>
+    <li><a href="{% url 'teacher_list' %}">Liste over lærere</a></li>
+    <li><a href="{% url 'exam_list' %}">Liste over prøver</a></li>
+    <li><a href="{% url 'censor_list' %}">Liste over censorer</a></li>
+    <li><a href="{% url 'class_create' %}">Opret klasse</a></li>
+    <li><a href="{% url 'exam_create' %}">Opret prøve</a></li>
+    <li><a href="{% url 'censor_create' %}">Opret censor</a></li>
+    <li><a href="{% url 'teacher_create' %}">Opret lærer</a></li>
+</ul>
+{% endblock %}

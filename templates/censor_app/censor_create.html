@@ -1,0 +1,26 @@
+{% extends 'censor_app/base.html' %}
+
+
+{% block content %}
+    <h1>Schools</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Address</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for school in schools %}
+                <tr>
+                    <td>{{ school.name }}</td>
+                    <td>{{ school.address }}</td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="2">No schools yet.</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

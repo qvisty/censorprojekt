@@ -1,0 +1,14 @@
+<!-- censor_app/school_class_list.html -->
+
+{% extends 'censor_app/base.html' %}
+
+{% block content %}
+  <h1>Klasser på {{ school.name }}</h1>
+  <ul>
+    {% for school_class in school_classes %}
+      <li>{{ school_class.name }}</li>
+    {% empty %}
+      <li>Der er ingen klasser på denne skole</li>
+    {% endfor %}
+  </ul>
+{% endblock %}

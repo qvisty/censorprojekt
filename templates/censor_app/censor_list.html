@@ -1,0 +1,35 @@
+{% extends 'censor_app/base.html' %}
+
+{% block content %}
+  <h1>Censor List</h1>
+  <table class="table-auto">
+    <thead>
+      <tr>
+        <th class="px-4 py-2">#</th>
+        <th class="px-4 py-2">Name</th>
+        <th class="px-4 py-2">Email</th>
+        <th class="px-4 py-2">School</th>
+        <th class="px-4 py-2">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for censor in censors %}
+        <tr>
+          <td class="border px-4 py-2">{{ forloop.counter }}</td>
+          <td class="border px-4 py-2">{{ censor.name }}</td>
+          <td class="border px-4 py-2">{{ censor.email }}</td>
+          <td class="border px-4 py-2">{{ censor.school }}</td>
+          <td class="border px-4 py-2">
+            <a href="{% url 'censor_update' censor.pk %}">Edit</a> | 
+            <a href="{% url 'censor_delete' censor.pk %}">Delete</a>
+          </td>
+        </tr>
+      {% empty %}
+        <tr>
+          <td class="border px-4 py-2 text-center" colspan="5">No censors found</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <a href="{% url 'censor_create' %}" class="mt-2 py-2 px-4 bg-blue-500 hover:bg-blue-700 text-white font-bold rounded">Add New Censor</a>
+{% endblock %}
