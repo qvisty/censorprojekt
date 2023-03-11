@@ -1,0 +1,12 @@
+{% extends 'censor_app/base.html' %}
+
+{% block content %}
+<h1>{{ censor.name }}</h1>
+<p>Skole: {{ censor.school.name }}</p>
+<p>Eksamener:</p>
+<ul>
+    {% for exam_censor in censor.exam_censors.all %}
+    <li><a href="{% url 'exam_detail' exam_censor.exam.id %}">{{ exam_censor.exam.exam_name }}</a></li>
+    {% endfor %}
+</ul>
+{% endblock %}

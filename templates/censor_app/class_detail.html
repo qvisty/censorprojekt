@@ -1,0 +1,18 @@
+{% extends 'censor_app/base.html' %}
+
+{% block content %}
+<h1>{{ school_class.name }}</h1>
+<p>Skole: {{ school_class.school }}</p>
+<p>Lærere:</p>
+<ul>
+    {% for teacher in school_class.teachers.all %}
+    <li>{{ teacher.name }}</li>
+    {% endfor %}
+</ul>
+<p>Eksamener:</p>
+<ul>
+    {% for exam in school_class.exam_set.all %}
+    <li>{{ exam.exam_name }} - {{ exam.exam_date }}</li>
+    {% endfor %}
+</ul>
+{% endblock %}

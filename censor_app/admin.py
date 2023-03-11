@@ -1,10 +1,9 @@
 from django.contrib import admin
-from .models import School, Teacher, Exam, Censor, ExamCensor, MissingData, SchoolClass
+from .models import Skole, Lærer, Eksamen, Censor, EksamensCensor, Skoleklasse
 
-admin.site.register(School)
-admin.site.register(Teacher)
-admin.site.register(Exam)
+admin.site.register(Skole)
+admin.site.register(Lærer)
+admin.site.register(Eksamen)
 admin.site.register(Censor)
-admin.site.register(ExamCensor)
-admin.site.register(MissingData)
-admin.site.register(SchoolClass)
+admin.site.register(EksamensCensor)
+admin.site.register(Skoleklasse)

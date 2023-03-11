@@ -15,36 +15,12 @@
     <body class="bg-gray-200 font-sans leading-normal tracking-normal">
 
         <!--Nav-->
-        <!-- Lave en navbar partial -->
-        <nav id="header" class="bg-white fixed w-full z-10 top-0 shadow">
-
-            <div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 py-2">
-
-                <div class="flex items-center">
-                    <a class="toggleColour text-gray-800 no-underline hover:no-underline font-bold text-2xl lg:text-4xl"
-                        href="#">
-                        Censorprojekt
-                    </a>
-                </div>
-
-                <div class="flex items-center" id="navbar-content">
-
-                    <ul class="list-reset lg:flex justify-end items-center">
-                        <li class="mr-3 py-2 lg:py-0">
-                            <a class="inline-block py-2 px-4 text-gray-900 font-bold no-underline" href="#">Skoler</a>
-                        </li>
-                        <li class="mr-3 py-2 lg:py-0">
-                            <a class="inline-block text-gray-600 no-underline hover:text-gray-900 hover:underline py-2 px-4"
-                                href="#">Kontakt</a>
-                        </li>
-                    </ul>
-
-                </div>
-            </div>
-        </nav>
-        <!--Nav-->
-
-        <!--Container-->
+        {% include 'partials/navbar.html' %}
+        
+        {% block navbar %}
+        {% endblock navbar %}
+        <!-- End Nav -->
+        <!-- Container -->
         <div class="container w-full flex flex-wrap mx-auto px-2 pt-8 lg:pt-16 mt-16">
 
             <!-- Content -->
@@ -52,19 +28,19 @@
                 {% block content %}
                 {% endblock %}
             </div>
-            <!-- Content -->
+            <!-- End Content -->
 
         </div>
-        <!--Container-->
+        <!-- End Container-->
 
-        <!-- Footer -->
-        <footer class="bg-gray-800 py-6">
-            <div class="container mx-auto px-6">
-                <div class="mt-8 flex justify-center">
-                    <p class="text-gray-400 text-sm">Censorprojekt - 2023</p>
-                </div>
-            </div>
-        </footer>
+<!-- Footer -->
+<div class="fixed bottom-0 w-full">
+    {% include 'partials/footer.html' %}
+    {% block footer %}
+    {% endblock footer %}
+</div>
+<!-- End Footer -->
+
     </body>
 
 </html>

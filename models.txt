@@ -1,0 +1,28 @@
+Skole:
+- navn
+- addresse
+
+Eksamen:
+- navn
+- dato
+- * skoleklasse
+- * lærer
+- * censor
+
+Lærer:
+- navn
+- email
+- * skole
+
+Censor:
+- navn
+- * skole
+
+EksamensCensor:
+- * eksamen
+- * censor
+
+Skoleklasse:
+- navn
+- * skole
+

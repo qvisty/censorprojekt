@@ -1,0 +1,24 @@
+{% extends 'censor_app/base.html' %}
+
+{% block content %}
+<h1>{{ school.name }}</h1>
+<p>Adresse: {{ school.address }}</p>
+<p>Lærere:</p>
+<ul>
+    {% for teacher in school.personale.all %}
+    <li>{{ teacher.name }}</li>
+    {% endfor %}
+</ul>
+<p>Censorer:</p>
+<ul>
+    {% for censor in school.censors.all %}
+    <li>{{ censor.name }}</li>
+    {% endfor %}
+</ul>
+<p>Klasser:</p>
+<ul>
+    {% for school_class in school.schoolclass_set.all %}
+    <li><a href="{% url 'class_detail' school_class.id %}">{{ school_class.name }}</a></li>
+    {% endfor %}
+</ul>
+{% endblock %}

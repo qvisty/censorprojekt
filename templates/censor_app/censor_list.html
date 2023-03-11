@@ -1,35 +1,19 @@
-{% extends 'censor_app/base.html' %}
-
-{% block content %}
-  <h1>Censor List</h1>
-  <table class="table-auto">
-    <thead>
-      <tr>
-        <th class="px-4 py-2">#</th>
-        <th class="px-4 py-2">Name</th>
-        <th class="px-4 py-2">Email</th>
-        <th class="px-4 py-2">School</th>
-        <th class="px-4 py-2">Actions</th>
-      </tr>
-    </thead>
-    <tbody>
-      {% for censor in censors %}
-        <tr>
-          <td class="border px-4 py-2">{{ forloop.counter }}</td>
-          <td class="border px-4 py-2">{{ censor.name }}</td>
-          <td class="border px-4 py-2">{{ censor.email }}</td>
-          <td class="border px-4 py-2">{{ censor.school }}</td>
-          <td class="border px-4 py-2">
-            <a href="{% url 'censor_update' censor.pk %}">Edit</a> | 
-            <a href="{% url 'censor_delete' censor.pk %}">Delete</a>
-          </td>
-        </tr>
-      {% empty %}
-        <tr>
-          <td class="border px-4 py-2 text-center" colspan="5">No censors found</td>
-        </tr>
-      {% endfor %}
-    </tbody>
-  </table>
-  <a href="{% url 'censor_create' %}" class="mt-2 py-2 px-4 bg-blue-500 hover:bg-blue-700 text-white font-bold rounded">Add New Censor</a>
+{% extends 'censor_app/base.html' %} {% block content %}
+<h1 class="text-3xl font-bold mb-8">Censorer</h1>
+<div class="grid gap-4 grid-cols-3">
+  {% for censor in censors %}
+  <div class="bg-white shadow-lg rounded-lg px-4 py-6">
+    <h2 class="text-xl font-medium mb-2">{{ censor.name }}</h2>
+    <p class="text-gray-600 mb-4 italic">{{ censor.email }}</p>
+    <p class="text-gray-600">{{ censor.school }}</p>
+    <a
+      href="{% url 'censor_detail' censor.pk %}"
+      class="inline-block mt-4 py-2 px-4 bg-blue-500 hover:bg-blue-600 text-white rounded-lg"
+      >View Details</a
+    >
+  </div>
+  {% empty %}
+  <p>No exams yet.</p>
+  {% endfor %}
+</div>
 {% endblock %}

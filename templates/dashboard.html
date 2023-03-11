@@ -1,48 +1,47 @@
-{% extends 'censor_app/base.html' %}
+{% extends 'censor_app/base.html' %} {% block content %}
+<h1 class="text-3xl font-bold mb-8">Dashboard</h1>
 
-{% block content %}
-<h1>Dashboard</h1>
-<div class="row">
-    <div class="col-lg-4">
-        <h2>Skoler</h2>
-        <ul>
-            {% for school in schools %}
-            <li>{{ school.name }}</li>
-            {% empty %}
-            <li>Ingen skoler</li>
-            {% endfor %}
-        </ul>
+<div class="flex flex-wrap -mx-4">
+  <div class="w-full lg:w-1/3 px-4 mb-8">
+    <div class="bg-white rounded-lg shadow p-6">
+      <h2 class="text-xl font-semibold mb-4">Skoler</h2>
+      <ul>
+        {% for skole in skoler %}
+        <li>
+          <a href="{% url 'skole_detail' skole.pk %}">{{ skole.navn }}</a>
+        </li>
+        {% empty %}
+        <li>Ingen skoler</li>
+        {% endfor %}
+      </ul>
     </div>
-    <div class="col-lg-4">
-        <h2>Prøver</h2>
-        <ul>
-            {% for exam in exams %}
-            <li>{{ exam.exam_name }} - {{ exam.exam_date }}</li>
-            {% empty %}
-            <li>Ingen prøver</li>
-            {% endfor %}
-        </ul>
+  </div>
+
+  <div class="w-full lg:w-1/3 px-4 mb-8">
+    <div class="bg-white rounded-lg shadow p-6">
+      <h2 class="text-xl font-semibold mb-4">Prøver</h2>
+      <ul>
+        {% for exam in exams %}
+        <li>{{ exam.exam_name }} - {{ exam.exam_date }}</li>
+        {% empty %}
+        <li>Ingen prøver</li>
+        {% endfor %}
+      </ul>
     </div>
-    <div class="col-lg-4">
-        <h2>Klasser</h2>
-        <ul>
-            {% for school_class in classes %}
-            <li>{{ school_class.name }} - {{ school_class.school }}</li>
-            {% empty %}
-            <li>Ingen klasser</li>
-            {% endfor %}
-        </ul>
+  </div>
+
+  <div class="w-full lg:w-1/3 px-4 mb-8">
+    <div class="bg-white rounded-lg shadow p-6">
+      <h2 class="text-xl font-semibold mb-4">Klasser</h2>
+      <ul>
+        {% for school_class in classes %}
+        <li>{{ school_class.name }} - {{ school_class.school }}</li>
+        {% empty %}
+        <li>Ingen klasser</li>
+        {% endfor %}
+      </ul>
     </div>
+  </div>
 </div>
-<br />
-<ul>
-    <li><a href="{% url 'school_list' %}">Liste over skoler</a></li>
-    <li><a href="{% url 'teacher_list' %}">Liste over lærere</a></li>
-    <li><a href="{% url 'exam_list' %}">Liste over prøver</a></li>
-    <li><a href="{% url 'censor_list' %}">Liste over censorer</a></li>
-    <li><a href="{% url 'class_create' %}">Opret klasse</a></li>
-    <li><a href="{% url 'exam_create' %}">Opret prøve</a></li>
-    <li><a href="{% url 'censor_create' %}">Opret censor</a></li>
-    <li><a href="{% url 'teacher_create' %}">Opret lærer</a></li>
-</ul>
+
 {% endblock %}

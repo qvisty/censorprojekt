@@ -1,0 +1,9 @@
+{% extends 'censor_app/base.html' %}
+
+{% block content %}
+<h1>{{ exam.exam_name }}</h1>
+<p>Dato: {{ exam.exam_date }}</p>
+<p>Skoleklasse: {{ exam.school_class.name }}</p>
+<p>Lærer: {{ exam.teacher.name }}</p>
+<p>Censor: {{ exam.censor.name }}</p>
+{% endblock %}

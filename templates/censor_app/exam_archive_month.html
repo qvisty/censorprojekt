@@ -1,0 +1,17 @@
+{% extends 'censor_app/base.html' %} {% block content %}
+<h1>Kalender</h1>
+<ul>
+    {% for exam in object_list %}
+        <li>{{ exam.exam_date|date:"F j, Y" }}: {{ exam.exam_name }}</li>
+    {% endfor %}
+</ul>
+
+<p>
+    {% if previous_month %}
+        Previous Month: {{ previous_month|date:"F Y" }}
+    {% endif %}
+    {% if next_month %}
+        Next Month: {{ next_month|date:"F Y" }}
+    {% endif %}
+</p>
+</div>{% endblock %}
