@@ -35,30 +35,30 @@ from censor_app.views import (
 
 urlpatterns = [
     path("", include("censor_app.urls")),
-    # School URLs
-    path("schools/<int:pk>/update/", SkoleUpdate.as_view(), name="school_update"),
-    path("schools/create/", SkoleCreate.as_view(), name="school_create"),
-    path("schools/<int:pk>/", SkoleDetail.as_view(), name="skole_detail"),
-    path("schools/", SkoleList.as_view(), name="school_list"),
-    # Class URLs
-    path("classes/", SkoleklasseList.as_view(), name="class_list"),
-    path("classes/create/", SkoleklasseCreate.as_view(), name="class_create"),
-    path("classes/<int:pk>/update/", SkoleklasseUpdate.as_view(), name="class_update"),
-    path("classes/<int:pk>/", SkoleklasseDetail.as_view(), name="class_detail"),
+    # skole URLs
+    path("skole/<int:pk>/update/", SkoleUpdate.as_view(), name="skole_update"),
+    path("skole/create/", SkoleCreate.as_view(), name="skole_create"),
+    path("skole/<int:pk>/", SkoleDetail.as_view(), name="skole_detail"),
+    path("skoler/", SkoleList.as_view(), name="skole_list"),
+    # klasse URLs
+    path("klasser/", SkoleklasseList.as_view(), name="klasse_list"),
+    path("klasse/create/", SkoleklasseCreate.as_view(), name="klasse_create"),
+    path("klasse/<int:pk>/update/", SkoleklasseUpdate.as_view(), name="klasse_update"),
+    path("klasse/<int:pk>/", SkoleklasseDetail.as_view(), name="klasse_detail"),
     # Teacher URLs
-    path("teachers/", LærerList.as_view(), name="teacher_list"),
-    path("teachers/create/", LærerCreate.as_view(), name="teacher_create"),
-    path("teachers/<int:pk>/update/", LærerUpdate.as_view(), name="teacher_update"),
+    path("lærere/", LærerList.as_view(), name="lærer_list"),
+    path("lærer/create/", LærerCreate.as_view(), name="lærer_create"),
+    path("lærer/<int:pk>/update/", LærerUpdate.as_view(), name="lærer_update"),
     # Exam URLs
-    path("exams/", EksamenList.as_view(), name="exam_list"),
-    path("exams/create/", EksamenCreate.as_view(), name="exam_create"),
-    path("exams/<int:pk>/update/", EksamenUpdate.as_view(), name="exam_update"),
-    path("exams/<int:pk>/", EksamenDetail.as_view(), name="exam_detail"),
+    path("eksamen/", EksamenList.as_view(), name="eksamen_list"),
+    path("eksamen/create/", EksamenCreate.as_view(), name="eksamen_create"),
+    path("eksamen/<int:pk>/update/", EksamenUpdate.as_view(), name="eksamen_update"),
+    path("eksamen/<int:pk>/", EksamenDetail.as_view(), name="eksamen_detail"),
     # Censor URLs
-    path("censors/", CensorList.as_view(), name="censor_list"),
-    path("censors/create/", CensorCreate.as_view(), name="censor_create"),
-    path("censors/<int:pk>/update/", CensorUpdate.as_view(), name="censor_update"),
-    path("censors/<int:pk>/", CensorDetail.as_view(), name="censor_detail"),
+    path("censor/", CensorList.as_view(), name="censor_list"),
+    path("censor/create/", CensorCreate.as_view(), name="censor_create"),
+    path("censor/<int:pk>/update/", CensorUpdate.as_view(), name="censor_update"),
+    path("censor/<int:pk>/", CensorDetail.as_view(), name="censor_detail"),
     # admin
     path("admin/", admin.site.urls),
     # test

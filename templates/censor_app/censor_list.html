@@ -3,9 +3,9 @@
 <div class="grid gap-4 grid-cols-3">
   {% for censor in censors %}
   <div class="bg-white shadow-lg rounded-lg px-4 py-6">
-    <h2 class="text-xl font-medium mb-2">{{ censor.name }}</h2>
+    <h2 class="text-xl font-medium mb-2">{{ censor.navn }}</h2>
     <p class="text-gray-600 mb-4 italic">{{ censor.email }}</p>
-    <p class="text-gray-600">{{ censor.school }}</p>
+    <p class="text-gray-600">{{ censor.skole }}</p>
     <a
       href="{% url 'censor_detail' censor.pk %}"
       class="inline-block mt-4 py-2 px-4 bg-blue-500 hover:bg-blue-600 text-white rounded-lg"

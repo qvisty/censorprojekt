@@ -1,12 +1,12 @@
 {% extends 'censor_app/base.html' %}
 
 {% block content %}
-<h1>{{ censor.name }}</h1>
-<p>Skole: {{ censor.school.name }}</p>
+<h1>{{ censor.navn }}</h1>
+<p>Skole: {{ censor.skole.navn }}</p>
 <p>Eksamener:</p>
 <ul>
-    {% for exam_censor in censor.exam_censors.all %}
-    <li><a href="{% url 'exam_detail' exam_censor.exam.id %}">{{ exam_censor.exam.exam_name }}</a></li>
+    {% for eksamen_censor in censor.eksamen_censorer.all %}
+    <li><a href="{% url 'eksamen_detail' eksam_censor.eksamen.id %}">{{ censor.eksamen.navn }}</a></li>
     {% endfor %}
 </ul>
 {% endblock %}
