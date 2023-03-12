@@ -40,7 +40,7 @@
       <ul>
         {% for skoleklasse in skoleklasser %}
         <li>
-          <a href="{% url 'klasse_detail' skoleklasse.pk %}"
+          <a href="{% url 'skoleklasse_detail' skoleklasse.pk %}"
             >{{ skoleklasse.navn }} - {{ skoleklasse.skole }}</a
           >
         </li>

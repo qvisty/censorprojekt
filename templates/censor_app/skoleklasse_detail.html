@@ -1,16 +1,42 @@
 {% extends 'censor_app/base.html' %} {% block content %}
-<h1>{{ skoleklasse.navn }}</h1>
-<p>Skole: {{ skoleklasse.skole }}</p>
-<p>Lærere:</p>
-<ul>
-  {% for lærer in skoleklasse.lærere.all %}
-  <li>{{ lærer.navn }}</li>
-  {% endfor %}
-</ul>
-<p>Eksamener:</p>
-<ul>
-  {% for eksamen in skoleklasse.eksamen_set.all %}
-  <li>{{ eksamen.navn }} - {{ eksamen.dato }}</li>
-  {% endfor %}
-</ul>
+<div class="flex justify-between items-center mb-8">
+  <h1 class="text-3xl font-bold">{{ skoleklasse.navn }}</h1>
+  <a
+    href="{% url 'skoleklasse_update' skoleklasse.pk %}"
+    class="bg-blue-500 text-white px-4 py-2 rounded-lg"
+    >Redigér skoleklasse</a
+  >
+</div>
+
+<div class="bg-white shadow-lg rounded-lg p-6 mb-8">
+  <h2 class="text-xl font-semibold mb-4">Information</h2>
+  <p class="text-gray-600 mb-2">
+    <strong>Skole:</strong> {{ skoleklasse.skole }}
+  </p>
+  <p class="text-gray-600 mb-2"><strong>Lærere:</strong></p>
+  <ul class="list-disc ml-4">
+    {% for lærer in skoleklasse.lærere.all %}
+    <li>{{ lærer.navn }}</li>
+    {% endfor %}
+  </ul>
+</div>
+
+<div class="bg-white shadow-lg rounded-lg p-6">
+  <h2 class="text-xl font-semibold mb-4">Eksamener</h2>
+  {% if skoleklasse.eksamen_set.all %}
+  <ul class="list-disc ml-4">
+    {% for eksamen in skoleklasse.eksamen_set.all %}
+    <li>
+      <span>{{ eksamen.dato }} skal </span>
+      <span>{{ eksamen.skoleklasse }} til prøve i </span>
+      <span>{{ eksamen.navn }} med </span>
+      <span>{{ eksamen.lærer }} - censor: </span>
+      <span>{{ eksamen.censor }}</span>
+    </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+  <p class="text-gray-600">Ingen eksamener tilknyttet denne klasse.</p>
+  {% endif %}
+</div>
 {% endblock %}

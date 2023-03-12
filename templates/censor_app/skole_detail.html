@@ -1,24 +1,51 @@
-{% extends 'censor_app/base.html' %}
+{% extends 'censor_app/base.html' %} {% block content %}
 
-{% block content %}
-<h1>{{ skole.navn }}</h1>
-<p>Adresse: {{ skole.addresse }}</p>
-<p>Lærere:</p>
-<ul>
-    {% for lærer in skole.personale.all %}
-    <li>{{ lærer.navn }}</li>
-    {% endfor %}
-</ul>
-<p>Censorer:</p>
-<ul>
-    {% for censor in skole.censors.all %}
-    <li>{{ censor.navn }}</li>
-    {% endfor %}
-</ul>
-<p>Klasser:</p>
-<ul>
-    {% for skoleklasse in skole.skoleclass_set.all %}
-    <li><a href="{% url 'class_detail' skoleklasse.id %}">{{ skoleklasse.navn }}</a></li>
-    {% endfor %}
-</ul>
+<div class="flex justify-between items-center mb-8">
+  <h1 class="text-3xl font-bold">{{ skole.navn }}</h1>
+  <a
+    href="{% url 'skole_update' skole.pk %}"
+    class="bg-blue-500 text-white px-4 py-2 rounded-lg"
+    >Redigér Skole</a
+  >
+</div>
+<div
+  class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-40"
+>
+  <div class="bg-white shadow-lg rounded-lg p-6">
+    <p class="text-gray-600 mb-2">{{ skole.skole }}</p>
+    <p class="text-gray-600 mb-2">{{ skole.adresse }}</p>
+  </div>
+</div>
+<div
+  class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-40"
+>
+  <div class="bg-white shadow-lg rounded-lg p-6">
+    <h2 class="text-xl font-semibold mb-4">Lærere</h2>
+    <ul>
+      {% for lærer in skole.personale.all %}
+      <li>{{ lærer.navn }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+  <div class="bg-white shadow-lg rounded-lg p-6">
+    <h2 class="text-xl font-semibold mb-4">Eksamener</h2>
+    <ul>
+      {% for eksamen in skole.eksamener.all %}
+      <li>{{ eksamen.navn }} - {{ eksamen.dato }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+  <div class="bg-white shadow-lg rounded-lg p-6">
+    <h2 class="text-xl font-semibold mb-4">Klasser</h2>
+    <ul>
+      {% for skoleklasse in skoleklasser %}
+      <li>
+        <a href="{% url 'skoleklasse_detail' skoleklasse.id %}"
+          >{{ skoleklasse.navn }}</a
+        >
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
 {% endblock %}

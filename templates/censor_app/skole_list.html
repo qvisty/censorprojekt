@@ -17,6 +17,12 @@
       <h2 class="text-xl font-semibold mb-4">{{ skole.navn }}</h2>
       <p class="text-gray-600 mb-2">{{ skole.skole }}</p>
       <p class="text-gray-600 mb-2">{{ skole.adresse }}</p>
+
+      <ul class="list-disc ml-4">
+        {% for lærer in skole.personale.all %}
+        <li>{{ lærer.navn }}</li>
+        {% endfor %}
+      </ul>
     </div>
   </a>
   {% empty %}

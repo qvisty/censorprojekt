@@ -1,23 +1,50 @@
 {% extends 'censor_app/base.html' %} {% block content %}
-<h1 class="mb-8 text-2xl font-semibold">{{ lærer.navn }}</h1>
-<div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+<div class="flex justify-between items-center mb-8">
+  <h1 class="text-3xl font-bold">{{ lærer.navn }}</h1>
+  <a
+    href="{% url 'lærer_update' lærer.pk %}"
+    class="bg-green-500 text-white px-4 py-2 rounded-lg"
+    >Rediger lærer</a
+  >
+</div>
+<div
+  class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-40"
+>
   <div class="bg-white shadow-lg rounded-lg p-6">
     <h2 class="text-xl font-semibold mb-4">Information</h2>
     <p class="text-gray-600 mb-2"><strong>Navn:</strong> {{ lærer.navn }}</p>
-    <p class="text-gray-600 mb-2"><strong>School:</strong> {{ lærer.skole }}</p>
+    <p class="text-gray-600 mb-2">
+      <strong>Email:</strong> {{ lærer.email|default:"-" }}
+    </p>
+    <p class="text-gray-600 mb-2"><strong>Skole:</strong> {{ lærer.skole }}</p>
   </div>
   <div class="bg-white shadow-lg rounded-lg p-6">
-    <h2 class="text-xl font-semibold mb-4">Exams</h2>
-    {% if lærer.eksamen_set.all %}
+    <h2 class="text-xl font-semibold mb-4">Prøver som lærer</h2>
+    {% if eksamener %}
     <ul class="list-disc ml-4">
-      {% for eksamen in lærer.eksamen_set.all %}
+      {% for eksamen in eksamener %}
+      <li>{{ eksamen.navn }}</li>
+      {% endfor %}
+    </ul>
+    {% else %}
+    <p class="text-gray-600">Ingen prøver fundet.</p>
+    {% endif %}
+  </div>
+
+  <div class="bg-white shadow-lg rounded-lg p-6">
+    <h2 class="text-xl font-semibold mb-4">Klasser</h2>
+    {% if skoleklasser %}
+    <ul class="list-disc ml-4">
+      {% for skoleklasse in skoleklasser %}
       <li>
-        <a href="{% url 'eksamen_detail' eksamen.pk %}">{{ eksamen.navn }}</a>
+        <a href="{% url 'skoleklasse_detail' skoleklasse.id %}"
+          >{{ skoleklasse.navn }}</a
+        >
       </li>
       {% endfor %}
     </ul>
     {% else %}
-    <p class="text-gray-600">No exams yet.</p>
+    <p class="text-gray-600">Ingen klasser fundet.</p>
     {% endif %}
   </div>
 </div>

@@ -4,14 +4,14 @@
   <a
     href="{% url 'lærer_create' %}"
     class="bg-green-500 text-white px-4 py-2 rounded-lg"
-    >Opret Klasse</a
+    >Opret Lærer</a
   >
 </div>
 <div
   class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-40"
 >
   {% for lærer in lærere %}
-  <a href="{% url 'lærer_update' lærer.pk %}">
+  <a href="{% url 'lærer_detail' lærer.pk %}">
     <div class="bg-white shadow-lg rounded-lg p-6">
       <h2 class="text-xl font-semibold mb-4">{{ lærer.navn }}</h2>
       <p class="text-gray-600 mb-2">{{ lærer.skole }}</p>

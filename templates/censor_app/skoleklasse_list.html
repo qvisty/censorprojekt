@@ -1,11 +1,11 @@
 <!-- censor_app/skoleklasse_list.html -->
 {% extends 'censor_app/base.html' %} {% block content %}
 <div class="flex justify-between items-center mb-8">
-  <h1 class="text-3xl font-bold">Klasser</h1>
+  <h1 class="text-3xl font-bold">Skoleklasser</h1>
   <a
-    href="{% url 'klasse_create' %}"
+    href="{% url 'skoleklasse_create' %}"
     class="bg-green-500 text-white px-4 py-2 rounded-lg"
-    >Opret Klasse</a
+    >Opret Skoleklasse</a
   >
 </div>
 
@@ -13,18 +13,20 @@
   class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-40"
 >
   {% for skoleklasse in skoleklasser %}
-  <a href="{% url 'klasse_detail' skoleklasse.pk %}">
+  <a href="{% url 'skoleklasse_detail' skoleklasse.pk %}">
     <div class="bg-white shadow-lg rounded-lg p-6">
       <h2 class="text-xl font-semibold mb-4">{{ skoleklasse.navn }}</h2>
-      <p class="text-gray-600 mb-2">{{ skoleklasse.skole}}</p>
+      <p class="text-gray-600 mb-2">{{ skoleklasse.skole }}</p>
 
+      {% if skoleklasse.lærere.exists %}
       <ul>
         {% for lærer in skoleklasse.lærere.all %}
         <li>- {{ lærer.navn }}</li>
-        {% empty %}
-        <li>- Ingen lærere fundet</li>
         {% endfor %}
       </ul>
+      {% else %}
+      <p>Ingen lærere fundet for denne klasse.</p>
+      {% endif %}
     </div>
   </a>
   {% endfor %}

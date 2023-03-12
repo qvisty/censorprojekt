@@ -1,0 +1,52 @@
+[
+  {
+    "model": "censor_app.censor",
+    "pk": 1,
+    "fields": {
+      "navn": "Lone Jørgensen",
+      "fag": "Matematik",
+      "skole": 1,
+      "email": "lonej@skole.dk"
+    }
+  },
+  {
+    "model": "censor_app.censor",
+    "pk": 2,
+    "fields": {
+      "navn": "Jesper Madsen",
+      "fag": "Dansk",
+      "skole": 2,
+      "email": "jesperm@skole.dk"
+    }
+  },
+  {
+    "model": "censor_app.censor",
+    "pk": 3,
+    "fields": {
+      "navn": "Maria Nielsen",
+      "fag": "Engelsk",
+      "skole": 3,
+      "email": "marian@skole.dk"
+    }
+  },
+  {
+    "model": "censor_app.censor",
+    "pk": 4,
+    "fields": {
+      "navn": "Anders Pedersen",
+      "fag": "Fysik/kemi",
+      "skole": 4,
+      "email": "andersp@skole.dk"
+    }
+  },
+  {
+    "model": "censor_app.censor",
+    "pk": 5,
+    "fields": {
+      "navn": "Mette Larsen",
+      "fag": "Biologi",
+      "skole": 4,
+      "email": "mettel@skole.dk"
+    }
+  }
+]

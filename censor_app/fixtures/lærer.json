@@ -1,0 +1,42 @@
+[
+  {
+    "model": "censor_app.lærer",
+    "pk": 1,
+    "fields": {
+      "navn": "Anne Møller",
+      "skole": 1
+    }
+  },
+  {
+    "model": "censor_app.lærer",
+    "pk": 2,
+    "fields": {
+      "navn": "Mads Hansen",
+      "skole": 2
+    }
+  },
+  {
+    "model": "censor_app.lærer",
+    "pk": 3,
+    "fields": {
+      "navn": "Sofie Andersen",
+      "skole": 3
+    }
+  },
+  {
+    "model": "censor_app.lærer",
+    "pk": 4,
+    "fields": {
+      "navn": "Jesper Jensen",
+      "skole": 4
+    }
+  },
+  {
+    "model": "censor_app.lærer",
+    "pk": 5,
+    "fields": {
+      "navn": "Mette Nielsen",
+      "skole": 5
+    }
+  }
+]

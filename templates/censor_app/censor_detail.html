@@ -1,12 +1,24 @@
-{% extends 'censor_app/base.html' %}
-
-{% block content %}
-<h1>{{ censor.navn }}</h1>
-<p>Skole: {{ censor.skole.navn }}</p>
-<p>Eksamener:</p>
-<ul>
-    {% for eksamen_censor in censor.eksamen_censorer.all %}
-    <li><a href="{% url 'eksamen_detail' eksamen_censor.eksamen.id %}">{{ censor.eksamen.navn }}</a></li>
+{% extends 'censor_app/base.html' %} {% block content %}
+<div class="flex justify-between items-center mb-8">
+  <h1 class="text-3xl font-bold">{{ censor.navn }}</h1>
+  <a
+    href="{% url 'censor_update' censor.pk %}"
+    class="bg-blue-500 text-white px-4 py-2 rounded-lg"
+    >Redigér Censor</a
+  >
+</div>
+<div class="bg-white shadow-lg rounded-lg p-6 mb-8">
+  <p class="text-gray-600 mb-2">Eksamener:</p>
+  <ul>
+    {% for eksamen_censor in eksamener %}
+    <li>
+      <a href="#"
+        ><span>{{ eksamen_censor.navn }}</span>
+        <span>d. {{ eksamen_censor.dato }}</span
+        ><span> på {{ eksamen_censor.skole|default:"?" }}</span></a
+      >
+    </li>
     {% endfor %}
-</ul>
+  </ul>
+</div>
 {% endblock %}

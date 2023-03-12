@@ -63,11 +63,21 @@ class CensorDetail(DetailView):
     model = Censor
     template_name_suffix = "_detail"
 
+    def get_context_data(self, **kwargs):
+        context = super(CensorDetail, self).get_context_data(**kwargs)
+        context["eksamener"] = Eksamen.objects.filter(censor=self.object)
+
+        return context
+
 
 class CensorUpdate(UpdateView):
     model = Censor
+    fields = "__all__"
     template_name = "censor_app/censor_form.html"
-    success_url = reverse_lazy("censor_app:censor_list")
+    # success_url = reverse_lazy("censor_list")
+
+    def get_success_url(self):
+        return reverse("censor_detail", kwargs={"pk": self.object.id})
 
 
 class CensorDelete(DeleteView):
@@ -101,13 +111,14 @@ class EksamenDetail(DetailView):
 
 class EksamenUpdate(UpdateView):
     model = Eksamen
+    fields = "__all__"
     template_name_suffix = "_update_form"
     success_url = reverse_lazy("eksamen_list")
 
 
 class EksamenDelete(DeleteView):
     model = Eksamen
-    success_url = reverse_lazy("exam_list")
+    success_url = reverse_lazy("eksamen_list")
 
 
 class EksamenList(ListView):
@@ -132,6 +143,13 @@ class LærerDetail(DetailView):
     model = Lærer
     template_name_suffix = "_detail"
 
+    def get_context_data(self, **kwargs):
+        context = super(LærerDetail, self).get_context_data(**kwargs)
+        context["eksamener"] = Eksamen.objects.filter(lærer=self.object)
+        context["skoleklasser"] = Skoleklasse.objects.filter(lærere=self.object)
+
+        return context
+
 
 class LærerList(ListView):
     model = Lærer
@@ -145,7 +163,7 @@ class LærerList(ListView):
 
 class LærerUpdate(UpdateView):
     model = Lærer
-    fields = ["navn", "email"]
+    fields = "__all__"
     template_name_suffix = "_detail"
     success_url = reverse_lazy("lærer_list")
 
@@ -153,7 +171,7 @@ class LærerUpdate(UpdateView):
 class LærerCreate(CreateView):
     model = Lærer
     fields = "__all__"
-    template_name = "censor_app/lærer_create.html"
+    template_name = "censor_app/lærer_form.html"
 
 
 class LærerDelete(DeleteView):
@@ -176,7 +194,8 @@ class SkoleList(ListView):
 
 class SkoleUpdate(UpdateView):
     model = Skole
-    template_name_suffix = "_update"
+    fields = "__all__"
+    template_name_suffix = "_form"
 
 
 class SkoleDelete(DeleteView):
@@ -195,6 +214,13 @@ class SkoleCreate(CreateView):
 class SkoleDetail(DetailView):
     model = Skole
     template_name_suffix = "_detail"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        skole = get_object_or_404(Skole, pk=self.kwargs["pk"])
+        skoleklasser = Skoleklasse.objects.filter(skole=skole)
+        context["skoleklasser"] = skoleklasser
+        return context
 
 
 ###################
@@ -235,24 +261,8 @@ class SkoleklasseCreate(CreateView):
 
 class SkoleklasseUpdate(UpdateView):
     model = Skoleklasse
+    fields = "__all__"
     template_name = "censor_app/skoleklasse_form.html"
 
     def get_success_url(self):
-        return reverse("skoleklasse_list", kwargs={"pk": self.object.skole.pk})
-
-
-"""
-class SkoleklasseList(ListView):
-    model = Skoleklasse
-    template_name = "censor_app/skoleklasse_list.html"
-    context_object_name = "skoleklasser"
-
-    def get_queryset(self):
-        self.skole = get_object_or_404(Skole, id=self.kwargs["skole_id"])
-        return Skoleklasse.objects.filter(skole=self.skole)
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context["skole"] = self.skole
-        return context
-"""
+        return reverse("skoleklasse_detail", kwargs={"pk": self.object.id})

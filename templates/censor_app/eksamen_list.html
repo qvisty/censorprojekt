@@ -12,10 +12,26 @@
   <div class="bg-white shadow-lg rounded-lg px-4 py-6">
     <a href="{% url 'eksamen_detail' eksamen.pk %}">
       <h2 class="text-xl font-medium mb-2">{{ eksamen.navn }}</h2>
-      <p class="text-gray-600 mb-4 italic">{{ eksamen.dato }}</p>
+
+      {% if not eksamen.dato %}
+      <p class="text-gray-600">
+        <span class="underline italic text-red-500">Ingen dato</span>
+      </p>
+      {% else %}
+      <p class="text-gray-600 mb-4 italic">
+        <span>{{ eksamen.dato }}</span>
+      </p>
+      {% endif %}
+
       <p class="text-gray-600">{{ eksamen.skoleklasse }}</p>
+      {% if not eksamen.lærer %}
+      <p class="text-gray-600">
+        <span>Lærer: </span>
+        <span class="underline text-red-500">Ikke tilknyttet</span>
+      </p>
+      {% else %}
       <p class="text-gray-600">Lærer: {{ eksamen.lærer }}</p>
-      {% if not eksamen.censor %}
+      {% endif %} {% if not eksamen.censor %}
       <p class="text-gray-600">
         <span>Censor:</span>
         <span class="underline text-red-500">Ikke tilknyttet</span>
@@ -24,6 +40,8 @@
       <p class="text-gray-600">Censor: {{ eksamen.censor }}</p>
       {% endif %}
     </a>
+    {% if eksamen.lærer and eksamen.censor and eksamen.dato %}
+    <span class="text-green-500">👍</span> {% endif %}
   </div>
   {% empty %}
   <p>No exams yet.</p>

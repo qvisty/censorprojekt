@@ -1,0 +1,83 @@
+[
+  {
+    "model": "censor_app.skoleklasse",
+    "pk": 1,
+    "fields": { "navn": "1A", "skole": 1, "lærere": [1] }
+  },
+  {
+    "model": "censor_app.skoleklasse",
+    "pk": 2,
+    "fields": {
+      "navn": "1B",
+      "skole": 1,
+      "lærere": [2]
+    }
+  },
+  {
+    "model": "censor_app.skoleklasse",
+    "pk": 3,
+    "fields": {
+      "navn": "2A",
+      "skole": 2,
+      "lærere": [3]
+    }
+  },
+  {
+    "model": "censor_app.skoleklasse",
+    "pk": 4,
+    "fields": {
+      "navn": "2B",
+      "skole": 2,
+      "lærere": [4]
+    }
+  },
+  {
+    "model": "censor_app.skoleklasse",
+    "pk": 5,
+    "fields": {
+      "navn": "3A",
+      "skole": 3,
+      "lærere": [5]
+    }
+  },
+  {
+    "model": "censor_app.skoleklasse",
+    "pk": 6,
+    "fields": {
+      "navn": "3B",
+      "skole": 3
+    }
+  },
+  {
+    "model": "censor_app.skoleklasse",
+    "pk": 7,
+    "fields": {
+      "navn": "4A",
+      "skole": 4
+    }
+  },
+  {
+    "model": "censor_app.skoleklasse",
+    "pk": 8,
+    "fields": {
+      "navn": "4B",
+      "skole": 4
+    }
+  },
+  {
+    "model": "censor_app.skoleklasse",
+    "pk": 9,
+    "fields": {
+      "navn": "5A",
+      "skole": 5
+    }
+  },
+  {
+    "model": "censor_app.skoleklasse",
+    "pk": 10,
+    "fields": {
+      "navn": "5B",
+      "skole": 5
+    }
+  }
+]

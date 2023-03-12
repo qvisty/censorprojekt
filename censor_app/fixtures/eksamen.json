@@ -1,0 +1,57 @@
+[
+  {
+    "model": "censor_app.eksamen",
+    "pk": 1,
+    "fields": {
+      "navn": "Matematik",
+      "dato": "2023-06-12",
+      "skoleklasse": 1,
+      "lærer": 1,
+      "censor": 1
+    }
+  },
+  {
+    "model": "censor_app.eksamen",
+    "pk": 2,
+    "fields": {
+      "navn": "Dansk",
+      "dato": "2023-06-15",
+      "skoleklasse": 2,
+      "lærer": 2,
+      "censor": 2
+    }
+  },
+  {
+    "model": "censor_app.eksamen",
+    "pk": 3,
+    "fields": {
+      "navn": "Engelsk",
+      "dato": null,
+      "skoleklasse": 3,
+      "lærer": 3,
+      "censor": 3
+    }
+  },
+  {
+    "model": "censor_app.eksamen",
+    "pk": 4,
+    "fields": {
+      "navn": "Fysik/kemi",
+      "dato": "2023-06-25",
+      "skoleklasse": 4,
+      "lærer": null,
+      "censor": 4
+    }
+  },
+  {
+    "model": "censor_app.eksamen",
+    "pk": 5,
+    "fields": {
+      "navn": "Biologi",
+      "dato": "2023-06-30",
+      "skoleklasse": 5,
+      "lærer": 5,
+      "censor": null
+    }
+  }
+]

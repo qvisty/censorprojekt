@@ -42,14 +42,21 @@ urlpatterns = [
     path("skole/<int:pk>/", SkoleDetail.as_view(), name="skole_detail"),
     path("skoler/", SkoleList.as_view(), name="skole_list"),
     # skoleklasse URLs
-    path("klasser/", SkoleklasseList.as_view(), name="klasse_list"),
-    path("klasse/create/", SkoleklasseCreate.as_view(), name="klasse_create"),
-    path("klasse/<int:pk>/update/", SkoleklasseUpdate.as_view(), name="klasse_update"),
-    path("klasse/<int:pk>/", SkoleklasseDetail.as_view(), name="klasse_detail"),
+    path("skoleklasser/", SkoleklasseList.as_view(), name="skoleklasse_list"),
+    path("skoleklasse/create/", SkoleklasseCreate.as_view(), name="skoleklasse_create"),
+    path(
+        "skoleklasse/<int:pk>/update/",
+        SkoleklasseUpdate.as_view(),
+        name="skoleklasse_update",
+    ),
+    path(
+        "skoleklasse/<int:pk>/", SkoleklasseDetail.as_view(), name="skoleklasse_detail"
+    ),
     # Teacher URLs
     path("lærere/", LærerList.as_view(), name="lærer_list"),
     path("lærer/create/", LærerCreate.as_view(), name="lærer_create"),
     path("lærer/<int:pk>/update/", LærerUpdate.as_view(), name="lærer_update"),
+    path("lærer/<int:pk>/", LærerDetail.as_view(), name="lærer_detail"),
     # Exam URLs
     path("eksamen/", EksamenList.as_view(), name="eksamen_list"),
     path("eksamen/create/", EksamenCreate.as_view(), name="eksamen_create"),

@@ -1,27 +1,13 @@
-{% extends 'censor_app/base.html' %}
-
-
-{% block content %}
-    <h1>Skoler</h1>
-    <table>
-        <thead>
-            <tr>
-                <th>Navn</th>
-                <th>Adresse</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for skole in skoler %}
-                <tr>
-                    <td>{{ skole.navn }}</td>
-                    <td>{{ skole.addresse }}</td>
-                </tr>
-            {% empty %}
-                <tr>
-                    <td colspan="2">No schools yet.</td>
-                </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+<!-- censor_app/skole_form.html -->
+{% extends 'censor_app/base.html' %} {% block content %}
+<h1 class="text-3xl font-bold mb-8">Opret Eksamen</h1>
+<form method="post">
+  {% csrf_token %} {{ form.as_p }}
+  <button
+    type="submit"
+    class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
+  >
+    Gem
+  </button>
+</form>
 {% endblock %}
-

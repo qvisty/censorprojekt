@@ -1,0 +1,82 @@
+[
+  {
+    "model": "censor_app.Skole",
+    "pk": 1,
+    "fields": {
+      "navn": "Augustenborg Skole",
+      "adresse": "Skolevej 7"
+    }
+  },
+  {
+    "model": "censor_app.Skole",
+    "pk": 2,
+    "fields": {
+      "navn": "Broager Skole",
+      "adresse": "Havnbjergvej 44"
+    }
+  },
+  {
+    "model": "censor_app.Skole",
+    "pk": 3,
+    "fields": {
+      "navn": "Egen Skole",
+      "adresse": "Egenvej 57"
+    }
+  },
+  {
+    "model": "censor_app.Skole",
+    "pk": 4,
+    "fields": {
+      "navn": "Guderup Skole",
+      "adresse": "Skolevej 6"
+    }
+  },
+  {
+    "model": "censor_app.Skole",
+    "pk": 5,
+    "fields": {
+      "navn": "Hørup Skole",
+      "adresse": "Hørup Bygade 10"
+    }
+  },
+  {
+    "model": "censor_app.Skole",
+    "pk": 6,
+    "fields": {
+      "navn": "Kegnæs Skole",
+      "adresse": "Lodshusvej 1"
+    }
+  },
+  {
+    "model": "censor_app.Skole",
+    "pk": 7,
+    "fields": {
+      "navn": "Nordals Skole - Augustenborg Afdeling",
+      "adresse": "Møllebakken 20"
+    }
+  },
+  {
+    "model": "censor_app.Skole",
+    "pk": 8,
+    "fields": {
+      "navn": "Sønderskov-Skolen",
+      "adresse": "Skovbakken 23"
+    }
+  },
+  {
+    "model": "censor_app.Skole",
+    "pk": 9,
+    "fields": {
+      "navn": "Sønderborg Realskole",
+      "adresse": "Høruphavvej 10"
+    }
+  },
+  {
+    "model": "censor_app.Skole",
+    "pk": 10,
+    "fields": {
+      "navn": "Østerlund Efterskole",
+      "adresse": "Østerlundvej 50"
+    }
+  }
+]
