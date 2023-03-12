@@ -6,5 +6,7 @@ app_name = "censor_app"
 
 
 urlpatterns = [
+    # home
     path("", views.Dashboard.as_view(), name="dashboard"),
+
 ]

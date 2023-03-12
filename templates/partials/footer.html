@@ -1,12 +1,24 @@
-{% block footer %}
+{% comment "" %} {% block footer %}
 <footer class="bg-gray-800 py-6 mt-16">
-    <div class="container mx-auto px-6">
-        <div class="flex justify-center">
-            <div class="text-gray-400">
-                &copy; 2023 Censor App - Made by JQ. All rights reserved.
-            </div>
-        </div>
+  <div class="container mx-auto px-6">
+    <div class="flex justify-center">
+      <div class="text-gray-400">
+        &copy; 2023 Censor App - Made by JQ. All rights reserved.
+        <a href="http://127.0.0.1:8000/admin/">admin</a>
+      </div>
     </div>
+  </div>
+</footer>
+{% endblock footer %} {% endcomment %} {% block footer %}
+<footer class="bg-gray-800 py-6 mt-16 h-16">
+  <div class="container mx-auto px-6">
+    <div class="flex justify-center">
+      <div class="text-gray-400">
+        &copy; 2023 Censor App - Made by JQ. All rights reserved.
+        <a href="http://127.0.0.1:8000/admin/">admin</a>
+      </div>
+    </div>
+  </div>
 </footer>
 
 {% endblock footer %}

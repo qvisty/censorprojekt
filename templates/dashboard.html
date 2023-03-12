@@ -21,8 +21,12 @@
     <div class="bg-white rounded-lg shadow p-6">
       <h2 class="text-xl font-semibold mb-4">Prøver</h2>
       <ul>
-        {% for exam in exams %}
-        <li>{{ exam.exam_name }} - {{ exam.exam_date }}</li>
+        {% for eksamen in eksamener %}
+        <li>
+          <a href="{% url 'eksamen_detail' eksamen.pk %}"
+            >{{ eksamen.navn }} - {{ eksamen.dato }}</a
+          >
+        </li>
         {% empty %}
         <li>Ingen prøver</li>
         {% endfor %}
@@ -34,8 +38,12 @@
     <div class="bg-white rounded-lg shadow p-6">
       <h2 class="text-xl font-semibold mb-4">Klasser</h2>
       <ul>
-        {% for school_class in classes %}
-        <li>{{ school_class.name }} - {{ school_class.school }}</li>
+        {% for skoleklasse in skoleklasser %}
+        <li>
+          <a href="{% url 'klasse_detail' skoleklasse.pk %}"
+            >{{ skoleklasse.navn }} - {{ skoleklasse.skole }}</a
+          >
+        </li>
         {% empty %}
         <li>Ingen klasser</li>
         {% endfor %}

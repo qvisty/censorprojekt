@@ -1,7 +1,14 @@
 {% extends 'censor_app/base.html' %} {% block content %}
-<h1 class="text-3xl font-bold mb-8">Censorer</h1>
-<div class="grid gap-4 grid-cols-3">
-  {% for censor in censors %}
+<div class="flex justify-between items-center mb-8">
+  <h1 class="text-3xl font-bold">Censorer</h1>
+  <a
+    href="{% url 'censor_create' %}"
+    class="bg-green-500 text-white px-4 py-2 rounded-lg"
+    >Opret Censor</a
+  >
+</div>
+<div class="grid gap-4 grid-cols-3 mb-40">
+  {% for censor in censorer %}
   <div class="bg-white shadow-lg rounded-lg px-4 py-6">
     <h2 class="text-xl font-medium mb-2">{{ censor.navn }}</h2>
     <p class="text-gray-600 mb-4 italic">{{ censor.email }}</p>

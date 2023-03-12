@@ -2,19 +2,19 @@
 
 
 {% block content %}
-    <h1>Schools</h1>
+    <h1>skoler</h1>
     <table>
         <thead>
             <tr>
                 <th>Name</th>
-                <th>Address</th>
+                <th>Addresse</th>
             </tr>
         </thead>
         <tbody>
-            {% for school in schools %}
+            {% for skole in skoler %}
                 <tr>
-                    <td>{{ school.name }}</td>
-                    <td>{{ school.address }}</td>
+                    <td>{{ skoler.navn }}</td>
+                    <td>{{ skoler.addresse }}</td>
                 </tr>
             {% empty %}
                 <tr>

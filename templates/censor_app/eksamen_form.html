@@ -1,19 +1,20 @@
 {% extends 'censor_app/base.html' %}
 
+
 {% block content %}
-    <h1>Schools</h1>
+    <h1>Skoler</h1>
     <table>
         <thead>
             <tr>
-                <th>Name</th>
-                <th>Address</th>
+                <th>Navn</th>
+                <th>Adresse</th>
             </tr>
         </thead>
         <tbody>
-            {% for school in schools %}
+            {% for skole in skoler %}
                 <tr>
-                    <td>{{ school.name }}</td>
-                    <td>{{ school.address }}</td>
+                    <td>{{ skole.navn }}</td>
+                    <td>{{ skole.addresse }}</td>
                 </tr>
             {% empty %}
                 <tr>
@@ -23,3 +24,4 @@
         </tbody>
     </table>
 {% endblock %}
+

@@ -1,24 +1,24 @@
 {% extends 'censor_app/base.html' %}
 
 {% block content %}
-<h1>{{ school.name }}</h1>
-<p>Adresse: {{ school.address }}</p>
+<h1>{{ skole.navn }}</h1>
+<p>Adresse: {{ skole.addresse }}</p>
 <p>Lærere:</p>
 <ul>
-    {% for teacher in school.personale.all %}
-    <li>{{ teacher.name }}</li>
+    {% for lærer in skole.personale.all %}
+    <li>{{ lærer.navn }}</li>
     {% endfor %}
 </ul>
 <p>Censorer:</p>
 <ul>
-    {% for censor in school.censors.all %}
-    <li>{{ censor.name }}</li>
+    {% for censor in skole.censors.all %}
+    <li>{{ censor.navn }}</li>
     {% endfor %}
 </ul>
 <p>Klasser:</p>
 <ul>
-    {% for school_class in school.schoolclass_set.all %}
-    <li><a href="{% url 'class_detail' school_class.id %}">{{ school_class.name }}</a></li>
+    {% for skoleklasse in skole.skoleclass_set.all %}
+    <li><a href="{% url 'class_detail' skoleklasse.id %}">{{ skoleklasse.navn }}</a></li>
     {% endfor %}
 </ul>
 {% endblock %}

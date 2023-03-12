@@ -1,19 +1,32 @@
-<!-- censor_app/school_class_list.html -->
+<!-- censor_app/skoleklasse_list.html -->
 {% extends 'censor_app/base.html' %} {% block content %}
-<h1 class="text-3xl font-bold mb-8">Klasser</h1>
+<div class="flex justify-between items-center mb-8">
+  <h1 class="text-3xl font-bold">Klasser</h1>
+  <a
+    href="{% url 'klasse_create' %}"
+    class="bg-green-500 text-white px-4 py-2 rounded-lg"
+    >Opret Klasse</a
+  >
+</div>
 
 <div
-  class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
+  class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-40"
 >
-  {% for school_class in school_classes %}
-  <div class="bg-white shadow-lg rounded-lg p-6">
-    <h2 class="text-xl font-semibold mb-4">{{ school_class.name }}</h2>
-    <p class="text-gray-600 mb-2">{{ school_class.school }}</p>
-    <p class="text-gray-600 mb-2">{{ school_class.teachers }}</p>
-    <a href="#" class="text-indigo-600 hover:text-indigo-800">View details</a>
-  </div>
-  {% empty %}
-  <p class="text-gray-600"><li>Der er ingen klasser på denne skole</li></p>
+  {% for skoleklasse in skoleklasser %}
+  <a href="{% url 'klasse_detail' skoleklasse.pk %}">
+    <div class="bg-white shadow-lg rounded-lg p-6">
+      <h2 class="text-xl font-semibold mb-4">{{ skoleklasse.navn }}</h2>
+      <p class="text-gray-600 mb-2">{{ skoleklasse.skole}}</p>
+
+      <ul>
+        {% for lærer in skoleklasse.lærere.all %}
+        <li>- {{ lærer.navn }}</li>
+        {% empty %}
+        <li>- Ingen lærere fundet</li>
+        {% endfor %}
+      </ul>
+    </div>
+  </a>
   {% endfor %}
 </div>
-{% endblock %}
+{% endblock content %}

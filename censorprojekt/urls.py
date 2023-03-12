@@ -1,5 +1,6 @@
 # censor_project/urls.py
 from django.contrib import admin
+
 from django.urls import path, include
 from django.views.generic.base import RedirectView
 
@@ -40,7 +41,7 @@ urlpatterns = [
     path("skole/create/", SkoleCreate.as_view(), name="skole_create"),
     path("skole/<int:pk>/", SkoleDetail.as_view(), name="skole_detail"),
     path("skoler/", SkoleList.as_view(), name="skole_list"),
-    # klasse URLs
+    # skoleklasse URLs
     path("klasser/", SkoleklasseList.as_view(), name="klasse_list"),
     path("klasse/create/", SkoleklasseCreate.as_view(), name="klasse_create"),
     path("klasse/<int:pk>/update/", SkoleklasseUpdate.as_view(), name="klasse_update"),
@@ -59,9 +60,6 @@ urlpatterns = [
     path("censor/create/", CensorCreate.as_view(), name="censor_create"),
     path("censor/<int:pk>/update/", CensorUpdate.as_view(), name="censor_update"),
     path("censor/<int:pk>/", CensorDetail.as_view(), name="censor_detail"),
-    # admin
-    path("admin/", admin.site.urls),
-    # test
     # Example: /2012/08/
     path(
         "<int:year>/<int:month>/",
@@ -74,4 +72,6 @@ urlpatterns = [
         EksamenMonthArchive.as_view(),
         name="archive_month",
     ),
+    # admin
+    path("admin/", admin.site.urls, name="admin"),
 ]

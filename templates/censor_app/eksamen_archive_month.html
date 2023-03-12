@@ -1,8 +1,8 @@
 {% extends 'censor_app/base.html' %} {% block content %}
 <h1>Kalender</h1>
 <ul>
-    {% for exam in object_list %}
-        <li>{{ exam.exam_date|date:"F j, Y" }}: {{ exam.exam_name }}</li>
+    {% for eksamen in object_list %}
+        <li>{{ eksamen.dato|date:"F j, Y" }}: {{ eksamen.dato }}</li>
     {% endfor %}
 </ul>
 

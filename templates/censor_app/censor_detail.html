@@ -6,7 +6,7 @@
 <p>Eksamener:</p>
 <ul>
     {% for eksamen_censor in censor.eksamen_censorer.all %}
-    <li><a href="{% url 'eksamen_detail' eksam_censor.eksamen.id %}">{{ censor.eksamen.navn }}</a></li>
+    <li><a href="{% url 'eksamen_detail' eksamen_censor.eksamen.id %}">{{ censor.eksamen.navn }}</a></li>
     {% endfor %}
 </ul>
 {% endblock %}

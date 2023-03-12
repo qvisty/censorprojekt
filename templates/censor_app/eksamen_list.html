@@ -1,23 +1,34 @@
 {% extends 'censor_app/base.html' %} {% block content %}
-<h1 class="text-3xl font-bold mb-8">Prøver</h1>
-<div class="grid gap-4 grid-cols-3">
-  {% for exam in exams %}
+<div class="flex justify-between items-center mb-8">
+  <h1 class="text-3xl font-bold">Eksamen</h1>
+  <a
+    href="{% url 'eksamen_create' %}"
+    class="bg-green-500 text-white px-4 py-2 rounded-lg"
+    >Opret Eksamen</a
+  >
+</div>
+<div class="grid gap-4 grid-cols-3 mb-40">
+  {% for eksamen in eksamener %}
   <div class="bg-white shadow-lg rounded-lg px-4 py-6">
-    <h2 class="text-xl font-medium mb-2">{{ exam.exam_name }}</h2>
-    <p class="text-gray-600 mb-4 italic">{{ exam.exam_date }}</p>
-    <p class="text-gray-600">{{ exam.school_class }}</p>
-    <p class="text-gray-600">Lærer: {{ exam.teacher }}</p>
-    <p class="text-gray-600">Censor: {{ exam.censor }}</p>
-    <a
-      href="{% url 'exam_detail' exam.pk %}"
-      class="inline-block mt-4 py-2 px-4 bg-blue-500 hover:bg-blue-600 text-white rounded-lg"
-      >View Details</a
-    >
+    <a href="{% url 'eksamen_detail' eksamen.pk %}">
+      <h2 class="text-xl font-medium mb-2">{{ eksamen.navn }}</h2>
+      <p class="text-gray-600 mb-4 italic">{{ eksamen.dato }}</p>
+      <p class="text-gray-600">{{ eksamen.skoleklasse }}</p>
+      <p class="text-gray-600">Lærer: {{ eksamen.lærer }}</p>
+      {% if not eksamen.censor %}
+      <p class="text-gray-600">
+        <span>Censor:</span>
+        <span class="underline text-red-500">Ikke tilknyttet</span>
+      </p>
+      {% else %}
+      <p class="text-gray-600">Censor: {{ eksamen.censor }}</p>
+      {% endif %}
+    </a>
   </div>
   {% empty %}
   <p>No exams yet.</p>
   {% endfor %}
-  <br>
+  <br />
   <div></div>
   <div>
     Bare for en demo:
